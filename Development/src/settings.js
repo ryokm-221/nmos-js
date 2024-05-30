@@ -11,6 +11,8 @@ export const PAGING_LIMIT = 'Paging Limit';
 
 export const FRIENDLY_PARAMETERS = 'Friendly Parameters';
 
+export const API_PORT = 8000;
+
 export const disabledSetting = name => get(CONFIG, `${name}.disabled`);
 export const hiddenSetting = name => get(CONFIG, `${name}.hidden`);
 
@@ -25,7 +27,12 @@ const defaultUrl = api => {
     if (configUrl) {
         return configUrl;
     }
-    let baseUrl = window.location.protocol + '//' + window.location.host;
+    let baseUrl =
+        window.location.protocol +
+        '//' +
+        window.location.host +
+        ':' +
+        API_PORT.toString();
     switch (api) {
         case LOGGING_API:
             return baseUrl + '/log/v1.0';
