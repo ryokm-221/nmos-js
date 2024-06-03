@@ -27,12 +27,13 @@ const defaultUrl = api => {
     if (configUrl) {
         return configUrl;
     }
-    let baseUrl =
-        window.location.protocol +
-        '//' +
-        window.location.host +
-        ':' +
-        API_PORT.toString();
+    // let baseUrl =
+    //     window.location.protocol +
+    //     '//' +
+    //     window.location.host +
+    //     ':' +
+    //     API_PORT.toString();
+    let baseUrl = window.location.protocol + '//' + window.location.host;
     switch (api) {
         case LOGGING_API:
             return baseUrl + '/log/v1.0';
